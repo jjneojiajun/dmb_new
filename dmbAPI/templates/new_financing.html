@@ -8,18 +8,15 @@
         <form name="refinancing_calculator" action="javascript:newfinancingCalculator();">
             <div class="row">
                 <div class="col-md-6">
-                    <label>Property Type*</label>
+                    <label>What property are you buying?</label>
                 </div>
                 <div class="col-md-6">
-                    <div class="col-md-5">
-                        <input type="radio" name="residential" value=""> Private Residential
-                    </div>
-                    <div class="col-md-3">
-                        <input type="radio" name="residential" value="HDB"> HDB
-                    </div>
-                    <div class="col-md-"4>
-                        <input type="radio" name="residential" value="Commerical"> Commerical
-                    </div>
+                    <select id="building_type">
+                      <option value="Executive Condo">Executive Condo</option>
+                      <option value="Private Condo">Private Condo</option>
+                      <option value="Landed Property">Landed Property</option>
+                      <option value="HDB">HDB</option>
+                    </select>
                 </div>
             </div>
 
@@ -27,15 +24,13 @@
 
             <div class="row">
                 <div class="col-md-6">
-                    <label>Construction Status*</label>
+                    <label>Is the property completed or under construction?</label>
                 </div>
                 <div class="col-md-6">
-                    <div class="col-md-6">
-                        <input type="radio" name="construction_status" value="completed"> Completed
-                    </div>
-                    <div class="col-md-6">
-                        <input type="radio" name="construction_status" value="uncompleted"> Uncompleted
-                    </div>
+                    <select id="construction_type">
+                      <option value="Completed">Completed</option>
+                      <option value="Under Construction">Under Construction</option>
+                    </select>
                 </div>
             </div>
 
@@ -43,16 +38,13 @@
 
             <div class="row">
                 <div class="col-md-6">
-                    <label>Property Purchase* :</label>
+                    <label>Have you placed the Option Fee (deposit) for your dream home?</label>
                 </div>
                 <div class="col-md-6">
-                    <div class="col-md-6">
-                        <input type="radio" name="property_purchase" value="yes">Yes
-                    </div>
-
-                    <div class="col-md-6">
-                        <input type="radio" name="property_purchase" value="no">No
-                    </div>
+                    <select>
+                      <option value="Yes">Yes</option>
+                      <option value="No">No</option>
+                    </select>
                 </div>
             </div>
 
@@ -60,20 +52,24 @@
 
             <div class="row">
                 <div class="col-md-6">
-                    <label>Fixed or Floating Rates*</label>
+                    <label>What is your age this year?</label>
                 </div>
-                <div class="col-md-6 rates">
-                    <div class="col-md-4">
-                        <input type="radio" id="r1" name="rate" value="fixed_rate" required> Fixed
-                    </div>
+                <div class="col-md-6">
+                    <input type="number" class="form-control" id="age" />
+                </div>
+            </div>
 
-                    <div class="col-md-4">
-                        <input type="radio" id="r2" name="rate" value="float_rate"> Floating
-                    </div>
+            <br>
 
-                    <div class="col-md-4">
-                        <input type="radio" id="r3" name="rate" value="both"> Both
-                    </div>
+             <div class="row">
+                <div class="col-md-6">
+                    <label>What type of 'Lock in' period do you prefer?</label>
+                </div>
+                <div class="col-md-6">
+                    <select>
+                      <option value="Yes">'With Lock - In' Period (Lower Interest Rate)</option>
+                      <option value="No">'No Lock - In' Period (Higher Interest Rate)</option>
+                    </select>
                 </div>
             </div>
 
@@ -81,7 +77,7 @@
 
             <div class="row">
                 <div class="col-md-6">
-                    <label>Loan Amount*: </label>
+                    <label>What is the purchase price of your dream home?</label>
                 </div>
 
                 <div class="col-md-6">
@@ -92,12 +88,7 @@
             <br>
 
             <div class="row">
-                <div class="col-md-6">
-                    <label>Loan Tenure (Years)* :</label>
-                </div>
-                <div class="col-md-6">
-                    <input type="text" class="form-control" id="loan_tenure" />
-                </div>
+                <input type="checkbox" name="terms"> I consent and authorize DollarBackMortgage.com to contact me regarding my mortgage and to disclose any relevant information on my behalf to the banks I wish to apply to.</u>
             </div>
 
             <br/>
@@ -112,7 +103,7 @@
 <section class="section-steps" id="bank-rates">
     <div class="container-fluid">
         <div class="row">
-            <h2>Top 6 Bank Rates</h2>
+            <h2>Top 5 Bank Rates</h2>
             <p class="long-copy" id="pmt_rate"></p>
 
             <div id="root">

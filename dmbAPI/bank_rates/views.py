@@ -8,11 +8,11 @@ from django.template.loader import get_template
 
 
 class BankFilter(filters.FilterSet):
-    lower_interest_rate = filters.NumberFilter(field_name="interest_rates", lookup_expr='lte')
+    lower_interest_rate = filters.NumberFilter(field_name="interest_rates_year1", lookup_expr='lte')
 
     class Meta:
         model = BankRates
-        fields = ['loan_tenure', 'property_type', 'loan_type', 'lower_interest_rate']
+        fields = ['property_type', 'loan_type', 'lower_interest_rate', 'construction_status']
 
 
 class BankRatesViewSet(viewsets.ModelViewSet):
