@@ -8,18 +8,15 @@
         <form name="refinancing_calculator" action="javascript:refinancingCalculator();">
             <div class="row">
                 <div class="col-md-6">
-                    <label>Residential Type:</label>
+                    <label>What type of property are you refinancing?</label>
                 </div>
                 <div class="col-md-6">
-                    <div class="col-md-5">
-                        <input type="radio" name="residential" value="Private Residential"> Private Residential
-                    </div>
-                    <div class="col-md-3">
-                        <input type="radio" name="residential" value="HDB"> HDB
-                    </div>
-                    <div class="col-md-"4>
-                        <input type="radio" name="residential" value="Commerical"> Commerical
-                    </div>
+                    <select class="form-control" id="building_type" required>
+                      <option value="Executive Condo">Executive Condo</option>
+                      <option value="Private Condo">Private Condo</option>
+                      <option value="Landed Property">Landed Property</option>
+                      <option value="HDB">HDB</option>
+                    </select>
                 </div>
             </div>
 
@@ -27,40 +24,19 @@
 
             <div class="row">
                 <div class="col-md-6">
-                    <label>Fixed or Floating Rates*</label>
+                    <label>What is your remaining home loan amount ?</label>
                 </div>
-                <div class="col-md-6 rates">
-                    <div class="col-md-4">
-                        <input type="radio" id="r1" name="rate" value="fixed_rate" required> Fixed
-                    </div>
-
-                    <div class="col-md-4">
-                        <input type="radio" id="r2" name="rate" value="float_rate"> Floating
-                    </div>
-
-                    <div class="col-md-4">
-                        <input type="radio" id="r3" name="rate" value="both"> Both
-                    </div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" id="remaining_home_amount" required/>
                 </div>
+
             </div>
 
             <br>
 
             <div class="row">
                 <div class="col-md-6">
-                    <label>Existing Loan Amount*</label>
-                </div>
-
-                <div class="col-md-6">
-                    <input type="text" class="form-control" id="loan_amount" required />
-                </div>
-            </div>
-
-            <br>
-
-            <div class="row">
-                <div class="col-md-6">
-                    <label>Current Interest Rates*:</label>
+                    <label>How much is your current approximate monthly instalment?</label>
                 </div>
                 <div class="col-md-6">
                     <input type="text" id="interest_rates" class="form-control" required />
@@ -71,10 +47,24 @@
 
             <div class="row">
                 <div class="col-md-6">
-                    <label>Loan Tenure* :</label>
+                    <label>How many years are remaining on your existing home loan?</label>
                 </div>
                 <div class="col-md-6">
-                    <input type="text" id="loan_tenure" class="form-control" required />
+                    <input type="number" id="loan_tenure" class="form-control" required />
+                </div>
+            </div>
+
+            <br/>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <label>What type of 'Lock in' period do you prefer?</label>
+                </div>
+                <div class="col-md-6">
+                    <select id="lock_in_preference" class="form-control">
+                      <option value="Yes">'With Lock - In' Period (Lower Interest Rate)</option>
+                      <option value="No">'No Lock - In' Period (Higher Interest Rate)</option>
+                    </select>
                 </div>
             </div>
 
@@ -90,7 +80,7 @@
 <section class="section-steps" id="bank-rates">
     <div class="container-fluid">
         <div class="row">
-            <h2>Top 6 Bank Rates</h2>
+            <h2>Top 5 Bank Rates</h2>
             <p class="long-copy" id="pmt_rate"></p>
 
             <div id="root">

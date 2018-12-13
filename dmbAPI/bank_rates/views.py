@@ -12,7 +12,7 @@ class BankFilter(filters.FilterSet):
 
     class Meta:
         model = BankRates
-        fields = ['property_type', 'loan_type', 'lower_interest_rate', 'construction_status']
+        fields = ['property_type', 'loan_type', 'lower_interest_rate', 'construction_status', 'user_lock_in_preference']
 
 
 class BankRatesViewSet(viewsets.ModelViewSet):

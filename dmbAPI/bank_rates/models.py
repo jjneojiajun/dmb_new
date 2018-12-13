@@ -53,15 +53,15 @@ class BankRates(models.Model):
         (LOCK_NO, 'No')
     )
 
-    DBS = '127.0.0.1:8000/media/bank_images/dbs_logo.jpg'
-    UOB = '127.0.0.1:8000/media/bank_images/uob_logo.png'
-    SCT = '127.0.0.1:8000/media/bank_images/uob_logo.png'
-    MYB = '127.0.0.1:8000/media/bank_images/maybank_logo.png'
-    HLB = '127.0.0.1:8000/media/bank_images/hong_leong.jpg'
-    BEA = '127.0.0.1:8000/media/bank_images/bea_logo.png'
-    OCBC = '127.0.0.1:8000/media/bank_images/ocbc_logo.png'
-    POSB = '127.0.0.1:8000/media/bank_images/posb_logo.png'
-    RHB = '127.0.0.1:8000/media/bank_images/rhb_bank.png'
+    DBS = '/media/bank_images/dbs_logo.jpg'
+    UOB = '/media/bank_images/uob_logo.png'
+    SCT = '/media/bank_images/standard_chartered.png'
+    MYB = '/media/bank_images/maybank_logo.png'
+    HLB = '/media/bank_images/hong_leong.jpg'
+    BEA = '/media/bank_images/bea_logo.png'
+    OCBC = '/media/bank_images/ocbc-logo.png'
+    POSB = '/media/bank_images/posb_logo.png'
+    RHB = '/media/bank_images/rhb_bank.png'
 
     BANK_IMAGE_CHOICES = (
         (DBS, 'DBS'),
