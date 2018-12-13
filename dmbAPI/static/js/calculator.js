@@ -4,7 +4,7 @@ bank_rates.style.display = "none";
 // Begin accessing JSON data here
 function newfinancingCalculator() {
     var loan_amount = document.getElementById('loan_amount').value;
-    var age = document.getElementById('age').value;
+    var age = parseInt(document.getElementById('age').value);
     var building_type = document.getElementById('building_type').value;
     var construction_status = document.getElementById('construction_type').value;
     var lock_in_preference = document.getElementById('lock_in_preference').value;
@@ -16,10 +16,6 @@ function newfinancingCalculator() {
         loan_tenure = 65 - age;
     }
 
-    // Alert User That They Can't Get A Loan
-    if (loan_tenure < 0) {
-
-    }
 
     var myNode = document.getElementById("root");
     while (myNode.firstChild) {
@@ -40,6 +36,12 @@ function newfinancingCalculator() {
 
         if (request.status >= 200 && request.status < 400) {
             data.slice(-6).forEach(bank => {
+                var year1 = PMT(bank.interest_rates_year1/100, loan_tenure, loan_amount);
+                var year1_monthly_interest_rate = PMT(bank.interest_rates_year1/100/12, loan_tenure * 12, loan_amount);
+                var year2 = PMT(bank.interest_rates_year2/100, (loan_tenure)-1, loan_amount - (year1));
+                var year2_monthly_interest_rate = PMT(bank.interest_rates_year2/100/12, ((loan_tenure)-1) * 12, loan_amount - (year1));
+                var year3_monthly_interest_rate = PMT(bank.interest_rates_year3/100/12, ((loan_tenure)-2) * 12, loan_amount - (year1) - (year2));
+
                 const columns = document.createElement('div');
                 columns.setAttribute('class', 'col-md-4');
 
@@ -62,6 +64,7 @@ function newfinancingCalculator() {
                 button.textContent = "More Details";
                 button.setAttribute('class', 'btn btn-primary');
                 button.setAttribute('data-target', '#modal' + String(bank.id));
+                button.setAttribute('data-toggle', "modal");
 
                 //Modal
                 const modal_div = document.createElement('div');
@@ -88,8 +91,19 @@ function newfinancingCalculator() {
                 modal_title.setAttribute('class', 'modal-title');
                 modal_title.textContent = bank.bank_name + " " + bank.loan_type + " " + bank.property_type;
 
-                const modal_body = document.createElement('div');
+                 const modal_body = document.createElement('div');
                 modal_body.setAttribute("class", "modal-body");
+
+                const modal_image_div = document.createElement('div');
+                modal_image_div.setAttribute('align', 'middle');
+
+                const modal_image = document.createElement('img');
+                modal_image.src = bank.bank_image;
+                modal_image.setAttribute('height', 150);
+                modal_image.setAttribute('width', 250);
+
+                const modal_interest = document.createElement('h3');
+                modal_interest.textContent = "INTEREST RATE: " + bank.interest_rates_year1 + "("  + bank.loan_type + ")";
 
                 // Yearly Breakdown Div
                 const yearly_breakdown_div = document.createElement('div');
@@ -183,6 +197,9 @@ function newfinancingCalculator() {
                 modal_header.append(close_button);
                 modal_header.append(modal_title);
                 modal_content.append(modal_body);
+                modal_body.append(modal_image_div);
+                modal_image_div.append(modal_image);
+                modal_image_div.append(modal_interest);
                 modal_body.append(yearly_breakdown_div);
                 yearly_breakdown_div.append(year1_column);
                 year1_column.append(year1_display);
@@ -318,7 +335,7 @@ function refinancingCalculator(){
 
                 const modal_image = document.createElement('img');
                 modal_image.src = bank.bank_image;
-                modal_image.setAttribute('height', 100);
+                modal_image.setAttribute('height', 150);
                 modal_image.setAttribute('width', 250);
 
                 const modal_interest = document.createElement('h3');
