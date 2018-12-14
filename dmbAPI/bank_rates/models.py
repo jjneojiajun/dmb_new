@@ -55,7 +55,7 @@ class BankRates(models.Model):
 
     DBS = '/media/bank_images/dbs_logo.png'
     UOB = '/media/bank_images/uob_logo.png'
-    SCT = '/media/bank_images/standard_chartered.png'
+    SCT = '/media/bank_images/standard_chartered_logo.png'
     MYB = '/media/bank_images/maybank_logo.png'
     HLB = '/media/bank_images/hong_leong_logo.png'
     BEA = '/media/bank_images/bea_logo.png'
@@ -85,7 +85,9 @@ class BankRates(models.Model):
     interest_rates_year1 = models.FloatField()
     interest_rates_year2 = models.FloatField()
     interest_rates_year3 = models.FloatField()
-
+    # dealing with minimum and maximum loan amount package
+    min_loan_amount = models.IntegerField()
+    max_loan_amount = models.IntegerField()
     penalties = models.CharField(max_length=1000, default='')
     subsidies = models.CharField(max_length=1000, default='')
     additional_fees = models.CharField(max_length=1000, default='')
@@ -94,5 +96,5 @@ class BankRates(models.Model):
         ordering = ('interest_rates_year1',)
 
     def __str__(self):
-        return self.bank_name + " " + str(self.property_type) + " " + str(self.construction_status) + " at interest rate of " + str(self.interest_rates_year1) + " in the first year"
+        return self.bank_name + " loan_package for amount from $" + str(self.min_loan_amount) + " to $" + str(self.max_loan_amount) + " for " + self.property_type
 

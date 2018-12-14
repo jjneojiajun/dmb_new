@@ -27,7 +27,7 @@ function newfinancingCalculator() {
     const app = document.getElementById('root');
 
 
-    request.open('GET', 'http://127.0.0.1:8000/api/bank_rates/?construction_status=' + String(construction_status) + '&property_type=' + String(building_type) + '&user_lock_in_preference=' + String(lock_in_preference), true);
+    request.open('GET', 'http://127.0.0.1:8000/api/bank_rates/?construction_status=' + String(construction_status) + '&property_type=' + String(building_type) + '&user_lock_in_preference=' + String(lock_in_preference) + '&min_loan_amount=' + parseInt(loan_amount) + '&max_loan_amount=' + parseInt(loan_amount), true);
 
 
     request.onload = function () {
@@ -252,7 +252,7 @@ function refinancingCalculator(){
 
     var request = new XMLHttpRequest();
 
-    request.open('GET', 'http://127.0.0.1:8000/api/bank_rates/?lower_interest_rate=' + String(interest_rates) + '&user_lock_in_preference=' + String(lock_in_preference) + '&property_type=' + String(building_type), true);
+    request.open('GET', 'http://127.0.0.1:8000/api/bank_rates/?lower_interest_rate=' + String(interest_rates) + '&user_lock_in_preference=' + String(lock_in_preference) + '&property_type=' + String(building_type) + '&min_loan_amount=' + parseInt(loan_amount) + '&max_loan_amount=' + parseInt(loan_amount), true);
     request.onload = function () {
 
         var data = JSON.parse(this.response);
