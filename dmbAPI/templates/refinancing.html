@@ -11,12 +11,16 @@
                     <label>What type of property are you refinancing?</label>
                 </div>
                 <div class="col-md-6">
-                    <select class="form-control" id="building_type" required>
-                      <option value="Executive Condo">Executive Condo</option>
-                      <option value="Private Condo">Private Condo</option>
-                      <option value="Landed Property">Landed Property</option>
-                      <option value="HDB">HDB</option>
-                    </select>
+                    <!--<select class="form-control" id="building_type" required>-->
+                      <!--<option value="Executive Condo">Executive Condo</option>-->
+                      <!--<option value="Private Condo">Private Condo</option>-->
+                      <!--<option value="Landed Property">Landed Property</option>-->
+                      <!--<option value="HDB">HDB</option>-->
+                    <!--</select>-->
+                    <input type="radio" id="p1" name="property" value="Executive Condo"> Executive Condo <br/>
+                    <input type="radio" id="p2" name="property" value="Private Condo"> Private Condo <br/>
+                    <input type="radio" id="p3" name="property" value="Landed Property"> Landed Property <br/>
+                    <input type="radio" id="p4" name="property" value="HDB"> HDB
                 </div>
             </div>
 
@@ -39,7 +43,7 @@
                     <label>How much is your current approximate monthly instalment?</label>
                 </div>
                 <div class="col-md-6">
-                    <input type="text" id="interest_rates" class="form-control" required />
+                    <input type="text" id="past_loan_amount" class="form-control" required />
                 </div>
             </div>
 
@@ -61,10 +65,12 @@
                     <label>What type of 'Lock in' period do you prefer?</label>
                 </div>
                 <div class="col-md-6">
-                    <select id="lock_in_preference" class="form-control">
-                      <option value="Yes">'With Lock - In' Period (Lower Interest Rate)</option>
-                      <option value="No">'No Lock - In' Period (Higher Interest Rate)</option>
-                    </select>
+                    <!--<select id="lock_in_preference" class="form-control">-->
+                      <!--<option value="Yes">'With Lock - In' Period (Lower Interest Rate)</option>-->
+                      <!--<option value="No">'No Lock - In' Period (Higher Interest Rate)</option>-->
+                    <!--</select>-->
+                    <input type="radio" id="li1" name="lock_in" value="Yes"> With Lock - In' Period (Lower Interest Rate) <br/>
+                    <input type="radio" id="li2" name="lock_in" value="No"> No Lock - In' Period (Higher Interest Rate)
                 </div>
             </div>
 
