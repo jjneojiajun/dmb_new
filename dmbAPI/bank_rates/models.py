@@ -12,6 +12,11 @@ class Bank(models.Model):
     OCBC = '/media/bank_images/ocbc-logo.png'
     POSB = '/media/bank_images/posb_logo.png'
     RHB = '/media/bank_images/rhb_logo.png'
+    CITI = '/media/bank_images/citibank.png'
+    CIMB = '/media/bank_images/cimb.png'
+    BARCLAYS = '/media/bank_images/barclays.png'
+    BOI = '/media/bank_images/bank_of_india.png'
+    BOC = '/media/bank_images/bank_of_china.png'
 
     BANK_IMAGE_CHOICES = (
         (DBS, 'DBS'),
@@ -22,7 +27,12 @@ class Bank(models.Model):
         (BEA, 'BEA'),
         (OCBC, 'OCBC'),
         (POSB, 'POSB'),
-        (RHB, 'RHB')
+        (RHB, 'RHB'),
+        (CITI, 'Citibank'),
+        (CIMB, 'CIMB Bank'),
+        (BARCLAYS, 'Barclays'),
+        (BOI, 'State Bank Of India'),
+        (BOC, 'Bank Of China')
     )
 
     bank_name = models.CharField(max_length=109, blank=False, default='')

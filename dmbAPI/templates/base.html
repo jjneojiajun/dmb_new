@@ -93,5 +93,12 @@
                 selector: '[data-toggle=tooltip]'
             });
         </script>
+        <script>
+            function possible_loan_amount() {
+                var x = document.getElementById("loan_amount").value;
+                document.getElementById("loan_breakdown").innerHTML = "Loan Amount: $ " + x * 0.8 + ", Downpayment: $ " + x * 0.2;
+            }
+        </script>
+
   </body>
 </html>

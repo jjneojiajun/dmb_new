@@ -422,7 +422,7 @@ function refinancingCalculator(){
                 year1_monthly_interest.textContent = "Monthly Installment: $" + thousands_separators(yearly_monthly_interest_rate.toFixed(2));
 
                 const year1_savings = document.createElement('p');
-                year1_savings.textContent = "Savings: $" + amount_saved * 12;
+                year1_savings.textContent = "Savings: $" + (amount_saved * 12).toFixed(2);
 
                 // col-2
                 const year2_column = document.createElement('div');
@@ -440,7 +440,7 @@ function refinancingCalculator(){
                 year2_monthly_interest.textContent = "Monthly Installment: $" + thousands_separators(yearly_monthly_interest_rate.toFixed(2));
 
                 const year2_savings = document.createElement('p');
-                year2_savings.textContent = "Savings: $" + amount_saved * 12;
+                year2_savings.textContent = "Savings: $" + (amount_saved * 12).toFixed(2);
 
                 // col-3
                 const year3_column = document.createElement('div');
@@ -458,7 +458,7 @@ function refinancingCalculator(){
                 year3_monthly_interest.textContent = "Monthly Installment: $" + thousands_separators(yearly_monthly_interest_rate.toFixed(2));
 
                 const year3_savings = document.createElement('p');
-                year3_savings.textContent = "Savings: $" + amount_saved * 12;
+                year3_savings.textContent = "Savings: $" + (amount_saved * 12).toFixed(2);
 
                 const additional_info_div = document.createElement('div');
                 additional_info_div.setAttribute('class', 'container');
