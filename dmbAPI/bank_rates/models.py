@@ -1,3 +1,4 @@
+from django.contrib.postgres.fields import IntegerRangeField
 from django.db import models
 
 
@@ -102,8 +103,7 @@ class BankRate(models.Model):
     # create ability to set which package is priority!
     package_priority = models.IntegerField(choices=PRIORITY_CHOICES)
     # dealing with minimum and maximum loan amount package
-    min_loan_amount = models.IntegerField()
-    max_loan_amount = models.IntegerField()
+    loan_package_min_max_range = IntegerRangeField()
     penalties = models.CharField(max_length=1000, default='')
     subsidies = models.CharField(max_length=1000, default='')
     additional_fees = models.CharField(max_length=1000, default='')
@@ -112,5 +112,4 @@ class BankRate(models.Model):
         ordering = ('package_priority',)
 
     def __str__(self):
-        return self.bank.bank_name + " loan_package for amount from $" + str(self.min_loan_amount) + " to $" + str(self.max_loan_amount) + " for " + self.property_type
-
+        return self.bank.bank_name

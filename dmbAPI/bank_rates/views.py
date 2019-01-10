@@ -8,13 +8,12 @@ from django.template.loader import get_template
 
 
 class BankFilter(filters.FilterSet):
-    min_package = filters.NumberFilter(field_name='min_loan_amount', lookup_expr='gte')
-    max_package = filters.NumberFilter(field_name='max_loan_amount', lookup_expr='lt')
+    loan_package_min_max_range = filters.NumberFilter(field_name='loan_package_min_max_range', lookup_expr="contains")
 
     class Meta:
         model = BankRate
         fields = ['property_type', 'loan_type', 'construction_status', 'user_lock_in_preference',
-                  'min_package', 'max_package', 'package_priority']
+                  'loan_package_min_max_range']
 
 
 class BankRatesViewSet(viewsets.ModelViewSet):

@@ -21,5 +21,4 @@ class BankRatesSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = BankRate
-        fields = ['id', 'bank', 'loan_type', 'property_type', 'construction_status', 'lock_in_period', 'user_lock_in_preference', 'interest_rates', 'package_priority', 'min_loan_amount',
-                  'max_loan_amount', 'penalties', 'subsidies', 'additional_fees']
+        fields = ['id', 'bank', 'loan_type', 'property_type', 'construction_status', 'lock_in_period', 'user_lock_in_preference', 'interest_rates', 'package_priority', 'loan_package_min_max_range', 'penalties', 'subsidies', 'additional_fees']
